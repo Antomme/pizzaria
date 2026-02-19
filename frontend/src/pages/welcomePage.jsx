@@ -47,7 +47,7 @@ function checkIfOpen() {
     if (day >= 1 && day <= 5) {
         // Montag-Freitag
         openHour = 11;
-        closeHour = 22;
+        closeHour = 23;
     } else {
         // Samstag-Sonntag
         openHour = 12;

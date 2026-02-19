@@ -1,7 +1,8 @@
 export default function PizzaItem({ pizza, amount, onAmountChange }) {
+    
     const handleChange = (e) => {
         const value = parseInt(e.target.value) || 0;
-        onAmountChange(pizza.name, value);
+        onAmountChange(pizza.name, value, pizza.price);
     };
 
     return (

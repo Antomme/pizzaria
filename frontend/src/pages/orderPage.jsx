@@ -6,10 +6,10 @@ import { Footer } from "../components/footer";
 export default function OrderPage({ order, setOrder }) {
     const navigate = useNavigate();
 
-    const handleAmountChange = (pizzaName, amount) => {
+    const handleAmountChange = (pizzaName, amount, price) => {
         setOrder(prev => ({
             ...prev,
-            [pizzaName]: amount
+            [pizzaName]: {amount, price}
         }));
     };
 
