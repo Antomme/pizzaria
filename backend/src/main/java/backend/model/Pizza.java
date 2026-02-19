@@ -1,8 +1,6 @@
 package backend.model;
 
 import jakarta.persistence.*;
-import org.antlr.v4.runtime.misc.NotNull;
-
 /**
  * JPA entity representing a pizza in the system.
  *
