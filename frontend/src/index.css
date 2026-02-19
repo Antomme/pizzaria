@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'Roboto Mono', monospace;
+  /* Einheitliche Schrift */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f7f2e9;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* --- Header --- */
+.header {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.header h1 {
+  color: #edc84b;
+  text-transform: uppercase;
+  font-size: 5rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+  position: relative;
+}
+
+.header h1::before,
+.header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  height: 3px;
+  width: 12rem;
+  background-color: #edc84b;
+}
+
+.header h1::before {
+  left: 0;
+}
+
+.header h1::after {
+  right: 0;
+}
+
+/* --- Footer --- */
+.footer {
+  display: block;
+  justify-content: center;
+  align-self: baseline;
+  padding: 1rem;
+  background-color: #eee;
+}
+
+.footer a {
+  display: block;
+  margin: 0.2rem 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* --- Container (für Content + Button) --- */
+.container {
+  flex: 1; 
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container p {
+  margin-bottom: 1.5rem; /* genereller Absatzabstand */
+}
+
+/* Button */
+.container button {
+  margin-top: 2rem;
+  background-color: #edc84b;
+  border: 1px solid #b38f1f;
+  border-radius: 5px;
+  height: 40px;
+  width: 200px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.container button:hover {
+  background-color: #b38f1f;
+  color: white;
+}
+
+.about-text {
+  white-space: pre-line; /* Zeilenumbrüche aus der .txt behalten */
+  line-height: 1.6;
+  margin-bottom: 2rem; /* Abstand nach unten */
+}
+/* --- Pizza Grid --- */
+.menu {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  /* zentriert die Kacheln */
+  width: 100%;
+  max-width: 1200px;
+  /* optional, begrenzt das Grid */
+}
+
+/* Pizza Summary Items - gleiches Design wie .pizza */
+
+/* Einzelne Summary-Items */
+.pizza-summary-item {
+  display: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+}
+
+
+/* --- Total --- */
+.total {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.total span {
+  color: #edc84b;
+}
+
+
+
+/* --- Einzelne Pizza-Kachel --- */
+.pizza {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem;
+  max-width: 100%;
+  align-items: flex-start;
+}
+
+.pizza img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.pizza-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.pizza-details h3 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  max-width: 40rem;
+}
+
+.pizza-details p {
+  font-size: 1rem;
+  max-width: 40rem;
+  color: #555;
+}
+
+.pizza-details span {
+  font-weight: bold;
+  color: #edc84b;
+}
+
+.pizza .sold-out {
+  color: #888;
+}
+
+.pizza.sold-out img {
+  filter: grayscale(100%);
+  opacity: 0.7;
+}
+
+
+.pizza-amount {
+  margin-left: auto;
+  width: 4rem;
+  height: 2rem;
+  padding: 0.4rem;
+  font-size: 1rem;
+  border: 1px solid #edc84b;
+  border-radius: 0.6rem;
+  background-color: #fff;
+  color: #252525;
+  transition: border-color 0.2s ease;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .menu {
+    grid-template-columns: 1fr;
+    /* nur eine Pizza pro Reihe auf kleinen Screens */
+  }
+
+  .pizza {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .pizza img {
+    margin-bottom: 1rem;
+  }
+}
