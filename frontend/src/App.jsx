@@ -4,6 +4,16 @@ import WelcomePage from './pages/welcomePage';
 import OrderPage from './pages/orderPage';
 import SummaryPage from './pages/summaryPage';
 
+/**
+ * Main application component.
+ * 
+ * Manages the global order state, auto-resets it after 15 minutes,
+ * and defines routing for Welcome, Order, and Summary pages.
+ * If the restaurant is closed, navigates the user back to the WelcomePage.
+ * 
+ * @returns {JSX.Element} The RouterProvider wrapping the application routes
+ */
+
 export default function App() {
   const [order, setOrder] = useState({}); // z.B. { "Margherita": 2 }
 
@@ -38,6 +48,14 @@ export default function App() {
   return <RouterProvider router={router} />;
 }
 
+/**
+ * Checks whether the restaurant is currently open.
+ * 
+ * Weekday hours (Mon-Fri): 10:00 – 22:00  
+ * Weekend hours (Sat-Sun): 12:00 – 23:00
+ * 
+ * @returns {boolean} True if the current time is within the restaurant's opening hours
+ */
 
 function isShopOpen() {
     const now = new Date();
@@ -48,8 +66,8 @@ function isShopOpen() {
 
     if (day >= 1 && day <= 5) {
         // Montag-Freitag
-        openHour = 11;
-        closeHour = 23;
+        openHour = 10;
+        closeHour = 22;
     } else {
         // Samstag-Sonntag
         openHour = 12;
