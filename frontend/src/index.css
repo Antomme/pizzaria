@@ -135,21 +135,20 @@ body {
 
 .pizza-summary-item {
   display: flex;
-  /* Bild + Text nebeneinander */
-  align-items: center;
-  /* vertikal zentrieren */
-  gap: 1rem;
-  /* Abstand zwischen Bild und Text */
+  align-items: center;       /* alles vertikal zentrieren */
+  gap: 1rem;                 /* Abstand zwischen Bild/Text/Input */
   padding: 1rem;
   background: white;
   border-radius: 10px;
   border: 2px solid #edc84b;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  min-height: 140px;
-  /* einheitliche Höhe */
-  max-height: 140px;
-  /* optional, damit sie nicht größer werden */
+  width: 100%;
+  max-width: 600px;          /* maximale Breite */
+  min-height: 140px;         /* Höhe gleich lassen */
+  position: relative;
+  margin: 0 auto;
 }
+
 
 .pizza-summary-item img {
   width: 120px;
@@ -165,6 +164,56 @@ body {
   /* Text nicht rauslaufen lassen */
   text-overflow: ellipsis;
   /* Optional: Text mit "..." abschneiden */
+}
+
+
+/* Wrapper für die Buttons rechts */
+.pizza-summary-item .item-buttons {
+  display: flex;
+  gap: 2rem;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  align-items: center;
+  position:absolute;
+  /* vertikal zentriert */
+}
+
+.pizza-summary-item .item-buttons img {
+  height: 30px;
+  /* gleiche Höhe für alle */
+  width: auto;
+  /* proportional skalieren */
+  cursor: pointer;
+  /* skaliert proportional */
+
+}
+
+.pizza-summary-item .item-buttons img.edit-btn {
+  width: 35px;
+  height: 35px;
+}
+
+.pizza-summary-item .item-buttons img.delete-btn {
+  width: 25px;
+  height: 25px;
+}
+
+
+.pizza-summary-item .item-buttons img:hover {
+  transform: scale(1.1);
+}
+
+.pizza-summary-item .pizza-amount {
+  margin-top: 0.5rem;
+  width: 4rem;
+  height: 2rem;
+  font-size: 1rem;
+  border: 1px solid #edc84b;
+  border-radius: 0.6rem;
+  background-color: #fff;
+  color: #252525;
+  transition: border-color 0.2s ease;
 }
 
 
@@ -235,7 +284,8 @@ body {
 
 
 .pizza-amount {
-  margin-top: 0.5rem; /* Abstand über Input */
+  margin-top: 0.5rem;
+  /* Abstand über Input */
   margin-left: auto;
   width: 4rem;
   height: 2rem;
@@ -267,11 +317,14 @@ body {
 
 
   .pizza-details {
-    align-items: center; /* Text + Input zentrieren */
+    align-items: center;
+    /* Text + Input zentrieren */
   }
 
   .pizza-amount {
-    margin-left: 0; /* Input nicht mehr rechts */
-    margin-top: 1rem; /* Etwas Abstand nach oben */
+    margin-left: 0;
+    /* Input nicht mehr rechts */
+    margin-top: 1rem;
+    /* Etwas Abstand nach oben */
   }
 }

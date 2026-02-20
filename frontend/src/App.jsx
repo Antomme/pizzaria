@@ -43,7 +43,7 @@ export default function App() {
     {
       path: "/summary",
       element: isShopOpen()
-        ? <SummaryPage order={order} />
+        ? <SummaryPage order={order} setOrder={setOrder}/>
         : <Navigate to="/" replace />
     },
     { path: "/about", element: <AboutPage /> },

@@ -1,6 +1,6 @@
 import Header from "../components/header";
 import { Footer } from "../components/footer";
-
+import PizzaSummaryItem from "../components/pizzaSummaryItem";
 /**
  * Renders the order summary page.
  *
@@ -16,11 +16,12 @@ import { Footer } from "../components/footer";
  * @returns {JSX.Element} The rendered order summary page.
  */
 
-export default function SummaryPage({ order }) {
+export default function SummaryPage({ order, setOrder }) {
 
     const safeOrder = order || {};
 
     const orderedItems = Object.entries(safeOrder).filter(([_, pizza]) => pizza.amount > 0);
+
 
     let sum = 0;
 
@@ -39,11 +40,9 @@ export default function SummaryPage({ order }) {
                     <p>Keine Pizzen ausgewählt.</p>
                 ) : (
                     orderedItems.map(([pizzaName, orderData]) => (
-                        <div key={pizzaName} className="pizza-summary-item">
-                            <img className="img" src={orderData.pizzaImg} alt={pizzaName} />
-                            <p>{pizzaName} x {orderData.amount} = {orderData.amount * orderData.price} €
-                            </p>
-                        </div>
+                        <PizzaSummaryItem key={pizzaName} pizzaName={pizzaName} orderData={orderData}
+                        order={order}
+                        setOrder={setOrder} />
                     )))}
                 <div className="total">Total: {sum} €</div>
                 <div className="button-wrapper"><button>Pay now!</button>
